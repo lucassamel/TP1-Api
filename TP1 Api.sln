@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PessoaPL", "TP1\PessoaPL.csproj", "{C0C750E8-C3E3-429F-A2D0-BD485CC55E13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PessoaBL", "PessoaBL\PessoaBL.csproj", "{EEEF6652-1FB5-43CA-AE59-D8BEE71C612B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PessoaDL", "PessoaDL\PessoaDL.csproj", "{E54FD431-5B77-4BBD-BA41-1D6D66AF6B9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0C750E8-C3E3-429F-A2D0-BD485CC55E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C750E8-C3E3-429F-A2D0-BD485CC55E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C750E8-C3E3-429F-A2D0-BD485CC55E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C750E8-C3E3-429F-A2D0-BD485CC55E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEEF6652-1FB5-43CA-AE59-D8BEE71C612B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEEF6652-1FB5-43CA-AE59-D8BEE71C612B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEEF6652-1FB5-43CA-AE59-D8BEE71C612B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEF6652-1FB5-43CA-AE59-D8BEE71C612B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E54FD431-5B77-4BBD-BA41-1D6D66AF6B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E54FD431-5B77-4BBD-BA41-1D6D66AF6B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E54FD431-5B77-4BBD-BA41-1D6D66AF6B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E54FD431-5B77-4BBD-BA41-1D6D66AF6B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B34B1710-9E4A-4BC7-8771-E8E457182E69}
+	EndGlobalSection
+EndGlobal
