@@ -23,11 +23,12 @@ namespace PessoaDL
         {
             public PessoaDbContext CreateDbContext(string[] args)
             {
-                IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).
-                    AddJsonFile(@Directory.GetCurrentDirectory() + "/../PessoaPL/appsettins.json").Build();
+                IConfigurationRoot configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile(@Directory.GetCurrentDirectory() + "/../TP1/appsettings.json").Build();
+
                 var builder = new DbContextOptionsBuilder<PessoaDbContext>();
                 var connectionString = configuration.GetConnectionString("DatabaseConnection");
                 builder.UseSqlServer(connectionString);
+
                 return new PessoaDbContext(builder.Options);
             }
         }
