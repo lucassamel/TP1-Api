@@ -78,17 +78,17 @@ namespace PessoaPL.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Pessoa>> PostPessoa(Pessoa pessoa)
-        {
-            _context.Pessoas.Add(pessoa);
-            await _context.SaveChangesAsync();
+        //public async Task<ActionResult<Pessoa>> PostPessoa(Pessoa pessoa)
+        //{
+        //    _context.Pessoas.Add(pessoa);
+        //    await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPessoa", new { id = pessoa.PessoaId }, pessoa);
-        }
+        //    return CreatedAtAction("GetPessoa", new { id = pessoa.PessoaId }, pessoa);
+        //}
 
         // DELETE: api/Pessoas/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Pessoa>> DeletePessoa(int id)
+        public async Task<ActionResult> DeletePessoa(int id)
         {
             var pessoa = await _context.Pessoas.FindAsync(id);
             if (pessoa == null)
@@ -99,12 +99,24 @@ namespace PessoaPL.Controllers
             _context.Pessoas.Remove(pessoa);
             await _context.SaveChangesAsync();
 
-            return pessoa;
+            return NoContent();
         }
 
         private bool PessoaExists(int id)
         {
             return _context.Pessoas.Any(e => e.PessoaId == id);
+        }
+
+        [HttpPost]
+        public IActionResult PostPessoa([FromBody] Pessoa pessoa)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest("Este Modelo não é valido");
+
+            _context.Pessoas.Add(pessoa);
+            _context.SaveChanges();
+
+            return Ok();
         }
     }
 }
