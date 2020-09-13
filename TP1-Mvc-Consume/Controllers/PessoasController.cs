@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -52,20 +53,20 @@ namespace TP1_Mvc_Consume.Controllers
 
         // POST: PessoasController/Create
         [HttpPost]
-        public IActionResult Create(Pessoa pessoa)
+        public async Task<IActionResult> Create(Pessoa pessoa)
         {
-            HttpClient client = _api.Initial();
-
-            var postTask = client.PostAsJsonAsync<Pessoa>("api/pessoas", pessoa);
-            postTask.Wait();
-
-            var result = postTask.Result;
-            if (result.IsSuccessStatusCode)
+            Pessoa recivePessoa = new Pessoa();
+            using (var httpClient = new HttpClient())
             {
-                return RedirectToAction(nameof(Index));
+                StringContent content = new StringContent(JsonConvert.SerializeObject(pessoa), Encoding.UTF8, "application/json");
+                using (var response = await httpClient.PostAsync("http://localhost:65089/api/amigos", content))
+                {
+                    string apiResponse = await
+                    response.Content.ReadAsStringAsync();
+                    recivePessoa = JsonConvert.DeserializeObject<Pessoa>(apiResponse);
+                }
             }
-               
-            return View();
+            return View(recivePessoa);
         }
 
         // GET: PessoasController/Edit/5

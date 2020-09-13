@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,10 +11,12 @@ using PessoaDL;
 
 namespace PessoaPL.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class PessoasController : ControllerBase
     {
+        
         private readonly PessoaDbContext _context;
 
         public PessoasController(PessoaDbContext context)
@@ -108,7 +111,7 @@ namespace PessoaPL.Controllers
         }
 
         [HttpPost]
-        public IActionResult PostPessoa([FromBody] Pessoa pessoa)
+        public IActionResult PostPessoa([FromBody] Pessoa pessoa)         
         {
             if (!ModelState.IsValid)
                 return BadRequest("Este Modelo não é valido");
